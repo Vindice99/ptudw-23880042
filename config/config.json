@@ -1,0 +1,27 @@
+{
+  "development": {
+    "use_env_variable": "POSTGRESQL_URL"
+  },
+
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "eshopDB",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "ptudwprojectdb",
+    "password": "HPIK0DVrg7Tq1WzB1Y625OJlYyhlgfbK",
+    "database": "ptudwprojectdb_p3jx",
+    "host": "dpg-cso5sudumphs7389p970-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}
