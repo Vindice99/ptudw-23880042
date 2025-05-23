@@ -4,7 +4,7 @@
     "password": "oD3lZoR7CaLATb3kiqYSYIIt7PzgcKTh",
     "database": "ptudwprojectdb_7zp7",
     "host": "dpg-d0nvso7diees739gpu20-a.singapore-postgres.render.com",
-    "dialect": "postgres",
+    "dialect": "postgre",
      "dialectOptions": {
       "ssl": {
         "require": true,
