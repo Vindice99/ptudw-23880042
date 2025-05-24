@@ -35,6 +35,7 @@ app.engine(
     helpers: {
       createStarList,
       createPagination,
+      eq: (a, b) => a === b,
     },
   })
 );
