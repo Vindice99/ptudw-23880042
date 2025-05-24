@@ -2,7 +2,6 @@
 
 const controller = {};
 const models = require("../models");
-const countries   = require('../utils/countries');
 
 controller.checkout = async (req, res) => {
   if (req.session.cart.quantity > 0) {
@@ -10,10 +9,6 @@ controller.checkout = async (req, res) => {
     res.locals.addresses = await models.Address.findAll({
       where: { userId },
     });
-
-    res.locals.countries = countries;
-    const defaultAddr  = res.locals.addresses.find(a => a.isDefault);
-    res.locals.selectedCountry  = defaultAddr ? defaultAddr.country : "US";
     res.locals.cart = req.session.cart.getCart();
     return res.render("checkout");
   }
