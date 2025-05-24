@@ -4,7 +4,7 @@
     "password": "oD3lZoR7CaLATb3kiqYSYIIt7PzgcKTh",
     "database": "ptudwprojectdb_7zp7",
     "host": "dpg-d0nvso7diees739gpu20-a.singapore-postgres.render.com",
-    "dialect": "postgre",
+    "dialect": "postgres",
      "dialectOptions": {
       "ssl": {
         "require": true,
@@ -25,7 +25,6 @@
     "password": "oD3lZoR7CaLATb3kiqYSYIIt7PzgcKTh",
     "database": "ptudwprojectdb_7zp7",
     "host": "dpg-d0nvso7diees739gpu20-a.singapore-postgres.render.com",
-    "port": 5432,
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
