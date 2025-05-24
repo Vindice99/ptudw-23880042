@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <div class="shipping-address">
+                    <div class="shipping-address d-none" id="shipping-address-form">
                         <h2>Shipping Address</h2>
                         <div class="row">
                             <div class="col-md-6">
@@ -157,3 +157,28 @@
 </form>
 
 <!-- Checkout End -->
+
+<!-- script to toggle the button  -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const shippingForm  = document.getElementById('shipping-address-form');
+  const addressRadios = document.querySelectorAll('input[name="addressId"]');
+  const shipToRadio   = document.getElementById('shipto');
+
+  function toggleShippingForm () {
+    // show when “Ship to different address” is the one that’s checked
+    if (shipToRadio.checked) {
+      shippingForm.classList.remove('d-none');
+    } else {
+      shippingForm.classList.add('d-none');
+    }
+  }
+
+  toggleShippingForm();
+
+  addressRadios.forEach(radio => {
+    radio.addEventListener('change', toggleShippingForm);
+  });
+});
+</script>
+
