@@ -1,4 +1,3 @@
-
 <!-- Breadcrumb Start -->
 <div class="breadcrumb-wrap">
     <div class="container">
@@ -15,7 +14,7 @@
 <!-- Checkout Start -->
 <form action="/users/placeorders" method="post" novalidate onsubmit="placeorders(event)">
     <div class="checkout">
-        <div class="container"> 
+        <div class="container">
             <div class="row">
                 <div class="col-md-7">
                     <div class="billing-address">
@@ -24,16 +23,17 @@
                             {{#each addresses}}
                             <div class="col-md-12">
                                 <div class="payment-method">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="address-{{id}}" name="addressId" value="{{id}}"
-                                                {{#if isDefault}} checked {{/if}}>
-                                            <label class="custom-control-label" for="address-{{id}}"><strong>{{firstName}} {{lastName}}</strong></label>
-                                        </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="address-{{id}}"
+                                            name="addressId" value="{{id}}" {{#if isDefault}} checked {{/if}}>
+                                        <label class="custom-control-label" for="address-{{id}}"><strong>{{firstName}}
+                                                {{lastName}}</strong></label>
+                                    </div>
                                     <div class="payment-content" id="address-{{id}}-show">
                                         <p>
-                                            Email: {{email}}<br/>
-                                            Mobile: {{mobile}}<br/>
-                                            Address: {{address}}, {{city}}, {{country}}<br/>
+                                            Email: {{email}}<br />
+                                            Mobile: {{mobile}}<br />
+                                            Address: {{address}}, {{city}}, {{country}}<br />
                                             {{state}}, {{zipCode}}
                                         </p>
                                     </div>
@@ -42,27 +42,31 @@
                             {{/each}}
                             <div class="col-md-12">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="shipto" name="addressId" value="0">
+                                    <input type="radio" class="custom-control-input" id="shipto" name="addressId"
+                                        value="0">
                                     <label class="custom-control-label" for="shipto">Ship to different address</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="shipping-address">
                         <h2>Shipping Address</h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>First Name</label>
-                                <input class="form-control" type="text" placeholder="First Name" name="firstName" required>
+                                <input class="form-control" type="text" placeholder="First Name" name="firstName"
+                                    required>
                             </div>
                             <div class="col-md-6">
                                 <label>Last Name</label>
-                                <input class="form-control" type="text" placeholder="Last Name" name="lastName" required>
+                                <input class="form-control" type="text" placeholder="Last Name" name="lastName"
+                                    required>
                             </div>
                             <div class="col-md-6">
                                 <label>E-mail</label>
-                                <input class="form-control" type="text" placeholder="E-mail" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                                <input class="form-control" type="text" placeholder="E-mail" name="email" required
+                                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
                             </div>
                             <div class="col-md-6">
                                 <label>Mobile No</label>
@@ -74,11 +78,12 @@
                             </div>
                             <div class="col-md-6">
                                 <label>Country</label>
-                                <select class="custom-select" name="country">
-                                    <option selected>United States</option>
-                                    <option>Afghanistan</option>
-                                    <option>Albania</option>
-                                    <option>Algeria</option>
+                                <select class="custom-select" name="country" required>
+                                    {{#each countries}}
+                                    <option value="{{code}}" {{#if (eq ../selectedCountry code)}}selected{{/if}}>
+                                        {{name}}
+                                    </option>
+                                    {{/each}}
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -111,29 +116,33 @@
                         </div>
                     </div>
                     {{/with}}
-                    
+
                     <div class="checkout-payment">
                         <h2>Payment Methods</h2>
                         <div class="payment-methods">
                             <div class="payment-method">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-1" name="payment" value="PAYPAL">
+                                    <input type="radio" class="custom-control-input" id="payment-1" name="payment"
+                                        value="PAYPAL">
                                     <label class="custom-control-label" for="payment-1">Paypal</label>
                                 </div>
                                 <div class="payment-content" id="payment-1-show">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac
+                                        eros volutpat maximus lacinia quis diam.
                                     </p>
                                 </div>
                             </div>
                             <div class="payment-method">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-5" name="payment" value="COD" checked>
+                                    <input type="radio" class="custom-control-input" id="payment-5" name="payment"
+                                        value="COD" checked>
                                     <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
                                 </div>
                                 <div class="payment-content" id="payment-5-show">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac
+                                        eros volutpat maximus lacinia quis diam.
                                     </p>
                                 </div>
                             </div>
@@ -149,6 +158,3 @@
 </form>
 
 <!-- Checkout End -->
-        
-        
-        
