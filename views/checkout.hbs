@@ -41,10 +41,11 @@
                             </div>
                             {{/each}}
                             <div class="col-md-12">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="shipto" name="addressId"
-                                        value="0">
-                                    <label class="custom-control-label" for="shipto">Ship to different address</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="shipto" name="shipto">
+                                    <label class="custom-control-label" for="shipto">
+                                        Ship to different address
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -161,24 +162,17 @@
 <!-- script to toggle the button  -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const shippingForm  = document.getElementById('shipping-address-form');
-  const addressRadios = document.querySelectorAll('input[name="addressId"]');
-  const shipToRadio   = document.getElementById('shipto');
+  const shippingForm = document.getElementById('shipping-address-form');
+  const shipToBox    = document.getElementById('shipto');
 
-  function toggleShippingForm () {
-    // show when “Ship to different address” is the one that’s checked
-    if (shipToRadio.checked) {
-      shippingForm.classList.remove('d-none');
-    } else {
-      shippingForm.classList.add('d-none');
-    }
-  }
+  // 1️⃣  toggle immediately on page load (covers reloads)
+  shippingForm.classList.toggle('d-none', !shipToBox.checked);
 
-  toggleShippingForm();
-
-  addressRadios.forEach(radio => {
-    radio.addEventListener('change', toggleShippingForm);
+  // 2️⃣  toggle every time the checkbox is clicked
+  shipToBox.addEventListener('change', e => {
+    shippingForm.classList.toggle('d-none', !e.target.checked);
   });
 });
 </script>
+
 
